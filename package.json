@@ -15,6 +15,10 @@
     "style:fix": "prettier --write src/**/*.ts test/**/*.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "_moduleAliases": {
+		"@src": "dist/src",
+		"@test": "dist/test"
+	},
   "keywords": [
     "node",
     "nodejs",
@@ -38,7 +42,6 @@
     "@types/express": "^4.17.9",
     "@types/jest": "^26.0.15",
     "@types/module-alias": "^2.0.0",
-    "@types/mongoose": "^5.10.2",
     "@types/nock": "^11.1.0",
     "@types/node": "^14.14.10",
     "@types/supertest": "^2.0.10",
