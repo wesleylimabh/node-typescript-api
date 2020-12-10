@@ -1,4 +1,3 @@
-import 'module-alias/register';
 import { SetupServer } from './server';
 import config from 'config';
 
