@@ -85,7 +85,7 @@ describe('Users functional tests', () => {
       expect(response.status).toBe(401);
     });
 
-    it.only('should return UNAUTHORIZED if the user is found but the password does not', async () => {
+    it('should return UNAUTHORIZED if the user is found but the password does not', async () => {
       const newUser = {
         name: 'John Doe',
         email: 'john@mail.com',
