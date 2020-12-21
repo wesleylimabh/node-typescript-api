@@ -34,14 +34,14 @@ jobs:
       run: yarn test
 
     - shell: bash
-      if: gitgub.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/master'
       name: Create SSH deployment key
       env:
         SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       run: ./scripts/deploy.sh
 
     - name: Deployment
-      if: gitgub.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/master'
       run: git remote add umbler ssh://git@geonosis.deploy.umbler.com:9922/jmn8n9mk/geral-surf-forecast-com.git && git push umbler master
       env:
         CI: true
