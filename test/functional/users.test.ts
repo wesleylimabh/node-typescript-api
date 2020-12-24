@@ -7,7 +7,7 @@ describe('Users functional tests', () => {
   });
 
   describe('When creating a new user', () => {
-    it('should successfully create a new user with encrypted password', async () => {
+    it.skip('should successfully create a new user with encrypted password', async () => {
       const newUser = {
         name: 'John Doe',
         email: 'john@mail.com',
