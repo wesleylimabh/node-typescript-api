@@ -23,7 +23,7 @@ export default class ApiError {
           : httpStatusCodes.getStatusText(error.code),
       },
       ...(error.documentation && { documentation: error.documentation }),
-      ...(error.description && { documentation: error.description }),
+      ...(error.description && { description: error.description }),
     };
   }
 }
