@@ -36,7 +36,7 @@ export abstract class BaseController {
     if (this.isDuplicatedKindError(error)) {
       return { code: 409, error: error.message };
     }
-    return { code: 422, error: error.message };
+    return { code: 400, error: error.message };
   }
 
   private isDuplicatedKindError(error: mongoose.Error.ValidationError) {
