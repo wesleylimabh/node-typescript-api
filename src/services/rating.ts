@@ -55,23 +55,11 @@ export class Rating {
   }
 
   public getRatingForSwellSize(height: number): number {
-    if (
-      height >= waveHeights.ankleToKnee.min &&
-      height < waveHeights.ankleToKnee.max
-    ) {
-      return 2;
-    }
-    if (
-      height >= waveHeights.waistHigh.min &&
-      height < waveHeights.waistHigh.max
-    ) {
-      return 3;
-    }
-    if (height >= waveHeights.headHigh.min) {
-      return 5;
-    }
+    if (height < waveHeights.ankleToKnee.min) return 1;
+    if (height < waveHeights.ankleToKnee.max) return 2;
+    if (height < waveHeights.waistHigh.max) return 3;
 
-    return 1;
+    return 5;
   }
 
   public getPositionFromLocation(coordinates: number): GeoPosition {
