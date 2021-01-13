@@ -40,7 +40,7 @@ export class ForecastController extends BaseController {
   ): Promise<void> {
     try {
       const userId = req.decoded?.id;
-      const beaches = await Beach.find({ user: userId });
+      const beaches = await Beach.find({ userId: userId });
       const forecasteData = await forecast.processForecastForBeaches(beaches);
       res.status(200).send(forecasteData);
     } catch (error) {
