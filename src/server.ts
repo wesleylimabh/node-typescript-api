@@ -1,6 +1,7 @@
 import './util/module-alias';
 import { Server } from '@overnightjs/core';
 import bodyParser from 'body-parser';
+import * as http from 'http';
 import { Application } from 'express';
 import expressPino from 'express-pino-logger';
 import cors from 'cors';
@@ -17,6 +18,7 @@ import apiSchema from './api.schema.json';
 import { apiErrorValidator } from './middlewares/api-error-validator';
 
 export class SetupServer extends Server {
+  private server?: http.Server;
   constructor(private port = 3000) {
     super();
   }
@@ -71,10 +73,11 @@ export class SetupServer extends Server {
 
   public async close(): Promise<void> {
     await database.close();
+    await this.server?.close();
   }
 
   public start(): void {
-    this.app.listen(this.port, () => {
+    this.server = this.app.listen(this.port, () => {
       logger.info('Server listenig of port: ' + this.port);
     });
   }
