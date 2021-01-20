@@ -4,6 +4,7 @@ import stormglassWeather3HoursFixture from '@test/fixtures/stormglass_weather_3_
 import apiForecastResponse1BeachFixture from '@test/fixtures/api_forecast_response_1_beach.json';
 import { User } from '@src/models/user';
 import AuthService from '@src/services/auth';
+import CacheUtil from '@src/util/cache';
 
 describe('Beach forecast functional tests', () => {
   const defaultUser = {
@@ -27,6 +28,7 @@ describe('Beach forecast functional tests', () => {
     };
 
     await new Beach(defaultBeach).save();
+    CacheUtil.clearAllCache();
     token = AuthService.generateToken(user.toJSON());
   });
 
